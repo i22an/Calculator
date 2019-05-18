@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My First Website</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="styles.css" rel='stylesheet' />
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h1 class='display-1'>My Addition Calculator</h1>
+        <p class="lead">
+          <blockquote class="blockquote">
+            <p class="mb-0">Bom! 2 + 2 is 4 minus 1 that's 3, quick maths!</p>
+            <footer class="blockquote-footer">A man who is not hot, a.k.a,  <cite title="Source Title">Big Shaq</cite></footer>
+          </blockquote>
+        </p>
+      </div>
+    </div>
+    <hr />
+    
+    <div class="row">
+      <div class="col">
+        <input id="firstNumber" type="text" class="form-control" placeholder="First number">
+      </div>
+      <div class="col">
+        <input id="secondNumber" type="text" class="form-control" placeholder="Second number">
+      </div>
+    </div>
+    
+
+    <div class="btn-group row mt-3 " role="group" aria-label="Basic example">
+      <div class="col">
+          <button onclick="onAddClicked()" type="button" class="btn btn-info">Add</button>
+          <button onclick="onSubtractClicked()" type="button" class="btn btn-info">Subtract</button>
+          <button onclick="onMultiplyClicked()" type="button" class="btn btn-info">Multiply</button>
+          <button onclick="onDivideClicked()" type="button" class="btn btn-info">Divide</button> 
+          <button onclick="onClear()" type="button" class="btn btn-danger">Clear</button>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col">
+        <h1>Answer:</h1>
+        <h1  id='answer'></h1>
+        <p></p>
+      </div>
+    </div>
+        
+</body>
+
+<script>
+  const firstNumber=document.getElementById('firstNumber').value;
+  const secondNumber=document.getElementById('secondNumber').value;
+
+  function addValue(firstNumber,secondNumber){
+    return firstNumber + secondNumber;
+  }
+
+  function subtractValue(firstNumber,secondNumber){
+    return firstNumber - secondNumber;
+  }
+
+  function multiplyValue(firstNumber,secondNumber){
+    return firstNumber * secondNumber;
+  }
+
+  function divideValue(firstNumber,secondNumber){
+    return firstNumber/secondNumber;
+  }
+
+  function onAddClicked(){
+    const firstNumber = parseInt(document.getElementById('firstNumber').value);
+    const secondNumber = parseInt(document.getElementById('secondNumber').value);
+    const answer = addValue(firstNumber, secondNumber);
+    //  console.log(firstNumber + secondNumber)
+    document.getElementById('answer').innerHTML = firstNumber + ' + ' + secondNumber + ' = ' + answer;
+  
+  }
+
+  function onSubtractClicked(){
+    const firstNumber = parseInt(document.getElementById('firstNumber').value);
+    const secondNumber = parseInt(document.getElementById('secondNumber').value);
+    document.getElementById('answer').innerHTML = firstNumber + ' - ' + secondNumber + ' = ' + answer;
+    //  console.log(firstNumber - secondNumber)
+  }
+
+  function onMultiplyClicked(){
+    const firstNumber = parseInt(document.getElementById('firstNumber').value);
+    const secondNumber = parseInt(document.getElementById('secondNumber').value);
+    const answer = multiplyValue(firstNumber, secondNumber);
+    //  console.log(firstNumber * secondNumber)
+    document.getElementById('answer').innerHTML = firstNumber + ' * ' + secondNumber + ' = ' + answer;
+  }
+
+  function onDivideClicked(){
+    const firstNumber = parseInt(document.getElementById('firstNumber').value);
+    const secondNumber = parseInt(document.getElementById('secondNumber').value);
+    const answer = divideValue(firstNumber, secondNumber);
+    //  console.log(firstNumber / secondNumber)
+    document.getElementById('answer').innerHTML = firstNumber + ' / ' + secondNumber + ' = ' + answer;
+  }
+
+  function onClear() {
+    clearInputs();
+  }
+
+  function clearInputs() {
+    document.getElementById('firstNumber').value = '';
+    document.getElementById('secondNumber').value = '';
+    document.getElementById('answer').innerHTML = '';
+  }
+</script>
+
+</html>
